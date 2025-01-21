@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '9.0.0-beta4'
+}
+
+group = 'es.redactado'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+
+    maven {
+        url = uri('https://oss.sonatype.org/content/groups/public/')
+    }
+
+    maven {
+        url = uri('https://repo.codemc.org/repository/maven-public')
+    }
+
+    maven {
+        url = uri('https://libraries.minecraft.net/')
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Lombok
+    implementation 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    implementation 'io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT'
+    implementation("io.github.miniplaceholders:miniplaceholders-api:2.2.3")
+    implementation("de.exlll:configlib-yaml:4.5.0")
+    implementation 'com.google.inject:guice:7.0.0'
+    implementation 'com.google.inject.extensions:guice-assistedinject:7.0.0'
+    implementation "net.kyori:adventure-text-serializer-plain:4.16.0"
+    implementation "net.kyori:adventure-text-serializer-legacy:4.16.0"
+    implementation "net.kyori:adventure-platform-bukkit:4.3.2"
+    implementation "net.kyori:adventure-text-minimessage:4.16.0"
+    implementation "net.kyori:adventure-api:4.16.0"
+    implementation "org.slf4j:slf4j-api:2.0.0-alpha1"
+    implementation "com.mojang:authlib:1.5.21"
+}
+
+test {
+    useJUnitPlatform()
+}
